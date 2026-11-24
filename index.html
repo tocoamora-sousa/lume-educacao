@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>lume — Plataforma de Estudos ENEM • Protótipo Interativo (R12 / D17)</title>
+  <title>Lume Educação — Plataforma de Estudos • Protótipo Interativo (R12 / D17)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
@@ -446,7 +446,7 @@ function gerarRespostaLocalIA(raw) {
     { rx: /geografia|semiarido|clima|urbanizacao|globalizacao|agro/, ans: '<strong>Geografia 🌍</strong><br>Foque em urbanização, questão agrária, energias renováveis no Nordeste (eólica/solar) e dinâmica do semiárido.' },
     { rx: /crase|virgula|portugues|funcao da linguagem|figura de linguagem|metafora/, ans: '<strong>Português 💬</strong><br><strong>Truque da Crase:</strong> troque a palavra feminina por uma masculina; se virar <em>"ao"</em>, usa crase (vou à aula → vou ao curso ✓). Nunca use antes de verbo!' },
     { rx: /ansiedade|cansad|desanim|foco|procrastin|como estudar|cronograma|plano/, ans: '<strong>Constância vence perfeição 💛</strong><br>Use blocos curtos de 25 min + 5 min de pausa e comece pela tarefa mais fácil na tela <strong>T02</strong>. Atrasou? Clique em <em>Reagendar atrasadas</em> sem culpa!' },
-    { rx: /lume|plano|preco|valor|assinatura|cancelar|cupom|piloto/, ans: '<strong>Sobre a Lume ENEM ✨</strong><br>7 dias grátis, plano anual a R$ 39,90/mês (teste o cupom <strong>LUME2027</strong> na tela T12!), videoaulas leves em 240p e cancelamento em 1 clique.' },
+    { rx: /lume|plano|preco|valor|assinatura|cancelar|cupom|piloto/, ans: '<strong>Sobre a Lume Educação ✨</strong><br>7 dias grátis, plano anual a R$ 39,90/mês (teste o cupom <strong>LUME2027</strong> na tela T12!), videoaulas leves em 240p e cancelamento em 1 clique.' },
   ];
   for (const item of kb) { if (item.rx.test(n)) return item.ans; }
 
@@ -463,7 +463,7 @@ async function perguntarGeminiReal(raw) {
     role: m.role === 'user' ? 'user' : 'model',
     parts: [{ text: m.text.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() }]
   }));
-  const sistema = `Você é a Lume IA, tutora oficial 24h da plataforma Lume ENEM (Feira de Santana, Bahia). O estudante se chama ${STATE.nomeAluno} e quer passar em ${STATE.cursoAlvo}. Responda em português do Brasil, de forma jovem, clara, empática e precisa (máximo 160 palavras), usando tópicos curtos quando ajudar. Se for pergunta sobre ENEM (regras, o que reprova/elimina, redação, TRI, SISU, matérias), dê a resposta exata e didática.`;
+  const sistema = `Você é a Lume IA, tutora oficial 24h da plataforma Lume Educação (Feira de Santana, Bahia). O estudante se chama ${STATE.nomeAluno} e quer passar em ${STATE.cursoAlvo}. Responda em português do Brasil, de forma jovem, clara, empática e precisa (máximo 160 palavras), usando tópicos curtos quando ajudar. Se for pergunta sobre ENEM (regras, o que reprova/elimina, redação, TRI, SISU, matérias), dê a resposta exata e didática.`;
 
   const modelos = ['gemini-2.5-flash', 'gemini-2.0-flash'];
   for (const mod of modelos) {
@@ -688,8 +688,8 @@ function renderTopDock() {
         ${LUME_LOGO_SVG}
         <div class="leading-tight">
           <div class="font-display font-extrabold text-sm tracking-tight text-ink flex items-center gap-1.5">
-            <span>lume</span>
-            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-lav-100 text-lav-700">ENEM</span>
+            <span>Lume</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-lav-100 text-lav-700">Educação</span>
             <span class="hidden md:inline-block text-[10px] font-semibold text-muted">· 15 Telas R12/D17</span>
           </div>
           <div class="text-[10px] text-muted hidden sm:block">Esquadrão Linha de Base • Web + Android</div>
@@ -792,7 +792,7 @@ function renderScreenContent() {
           <!-- Lado Esquerdo: Boas-vindas + Acesso rápido por perfil -->
           <div class="space-y-4">
             <div class="rounded-[28px] p-6 bg-gradient-to-br from-lav-50 via-white to-peach-50 border border-lav-100 shadow-soft">
-              <div class="flex items-center gap-2.5 mb-3">${LUME_LOGO_SVG}<span class="font-display font-extrabold text-xl text-ink">lume <span class="text-lav-600">ENEM</span></span></div>
+              <div class="flex items-center gap-2.5 mb-3">${LUME_LOGO_SVG}<span class="font-display font-extrabold text-xl text-ink">Lume <span class="text-lav-600">Educação</span></span></div>
               <h1 class="font-display font-extrabold text-2xl text-ink leading-tight">Estude leve, com foco total na sua aprovação.</h1>
               <p class="text-xs text-muted mt-2 leading-relaxed">Plataforma de estudos criada em Feira de Santana para estudantes e escolas parceiras do interior da Bahia — com modo 240p, redação comentada e Lume IA 24h.</p>
               <div class="mt-4 flex flex-wrap gap-2 text-[11px] font-bold">
@@ -1380,11 +1380,11 @@ function renderScreenContent() {
       return pill + `
         <div class="fade-up grid ${g2} gap-5">
           <div class="card-mlp p-6 space-y-4">
-            <div class="flex items-center justify-between"><h3 class="font-display font-bold text-base text-ink">Plano Lume ENEM</h3><div class="flex bg-canvas p-1 rounded-full text-xs font-bold"><button onclick="STATE.planoCiclo='mensal'; render()" class="px-3 py-1 rounded-full ${STATE.planoCiclo==='mensal'?'bg-white shadow-sm text-ink':'text-muted'}">Mensal</button><button onclick="STATE.planoCiclo='anual'; render()" class="px-3 py-1 rounded-full ${STATE.planoCiclo==='anual'?'bg-lav-600 text-white':'text-muted'}">Anual (-33%)</button></div></div>
+            <div class="flex items-center justify-between"><h3 class="font-display font-bold text-base text-ink">Plano Lume Educação</h3><div class="flex bg-canvas p-1 rounded-full text-xs font-bold"><button onclick="STATE.planoCiclo='mensal'; render()" class="px-3 py-1 rounded-full ${STATE.planoCiclo==='mensal'?'bg-white shadow-sm text-ink':'text-muted'}">Mensal</button><button onclick="STATE.planoCiclo='anual'; render()" class="px-3 py-1 rounded-full ${STATE.planoCiclo==='anual'?'bg-lav-600 text-white':'text-muted'}">Anual (-33%)</button></div></div>
             <div class="p-5 rounded-3xl bg-gradient-to-br from-lav-50 via-white to-peach-50 border border-lav-200"><span class="px-2.5 py-0.5 rounded-full bg-white text-lav-700 text-[10px] font-bold shadow-sm">7 DIAS GRÁTIS · SEM FIDELIDADE</span><div class="mt-2 flex items-baseline gap-1.5"><span class="font-display font-extrabold text-3xl text-ink">R$ ${finalVal.toFixed(2).replace('.',',')}</span><span class="text-xs text-muted">/mês ${STATE.cupomAtivo?'(20% OFF ✨)':''}</span></div><ul class="mt-3.5 space-y-1.5 text-xs text-ink/80"><li>✓ Videoaulas leves (240p) + download offline</li><li>✓ Questões comentadas + Simulados TRI</li><li>✓ 4 correções de redação/mês em até 3 dias</li><li>${STATE.scenario==='C3' ? '✕ Tutor com IA removido no Cenário C3' : '✓ Tutor Lume IA 24h + monitor humano'}</li></ul></div>
             <div class="flex gap-2"><input value="${STATE.cupomInput}" oninput="STATE.cupomInput=this.value" placeholder="Cupom (teste: LUME2027)" class="flex-1 rounded-full bg-canvas border border-slate-200 px-4 py-2 text-xs uppercase font-bold" /><button onclick="aplicarCupom()" class="px-4 py-2 rounded-full bg-navy text-white font-bold text-xs">Aplicar (LU-232)</button></div>
             <button onclick="STATE.pixGerado=true; STATE.assinaturaStatus='ativa'; render(); showToast('Código Pix gerado!')" class="w-full py-3 rounded-full bg-lav-600 hover:bg-lav-700 text-white font-display font-bold text-sm shadow-float">Gerar Pix & Ativar 7 Dias Grátis</button>
-            ${STATE.pixGerado ? `<div class="p-3 rounded-2xl bg-mint-50 border border-mint-100 text-[11px] flex items-center justify-between gap-2"><span class="font-mono truncate text-mint-600">00020126580014BR.GOV.BCB.PIX-LUME-ENEM-2027</span><button onclick="navigator.clipboard?.writeText('00020126580014BR.GOV.BCB.PIX-LUME-ENEM-2027'); showToast('Pix copiado!')" class="px-2.5 py-1 rounded-full bg-white text-mint-600 font-bold shrink-0">Copiar</button></div>` : ''}
+            ${STATE.pixGerado ? `<div class="p-3 rounded-2xl bg-mint-50 border border-mint-100 text-[11px] flex items-center justify-between gap-2"><span class="font-mono truncate text-mint-600">00020126580014BR.GOV.BCB.PIX-LUME-EDUCACAO-2027</span><button onclick="navigator.clipboard?.writeText('00020126580014BR.GOV.BCB.PIX-LUME-EDUCACAO-2027'); showToast('Pix copiado!')" class="px-2.5 py-1 rounded-full bg-white text-mint-600 font-bold shrink-0">Copiar</button></div>` : ''}
           </div>
           <div class="card-mlp p-6 flex flex-col justify-between space-y-4">
             <div class="space-y-3"><h3 class="font-display font-bold text-base text-ink">Autoatendimento Sem Burocracia</h3><p class="text-xs text-muted leading-relaxed">Assine e cancele no app <strong>sem ligar para ninguém</strong> — transparência para manter o cancelamento mensal abaixo de 6%.</p><div class="p-4 rounded-2xl bg-canvas space-y-2 text-xs"><div class="flex justify-between"><span class="text-muted">Status</span><strong class="${STATE.assinaturaStatus==='ativa'?'text-mint-600':'text-rosesoft-600'}">${STATE.assinaturaStatus==='ativa'?'Ativa (Teste Grátis)':'Cancelada pelo usuário'}</strong></div><div class="flex justify-between"><span class="text-muted">Cobrança</span><strong class="text-ink">Pix recorrente · 20/11/2026</strong></div></div><select onchange="STATE.motivoCancel=this.value" class="w-full rounded-2xl bg-canvas border border-slate-200 px-3.5 py-2 text-xs text-muted"><option value="">Motivo opcional...</option><option>Já fui aprovado(a)!</option><option>Falta de tempo</option><option>Preço acima do orçamento</option></select></div>
@@ -1498,7 +1498,7 @@ function render() {
           <div class="px-6 pt-3 pb-1 flex justify-between items-center text-[10px] font-bold text-ink/70 bg-canvas"><span>23:25</span><div class="flex items-center gap-1.5"><span>5G</span><span>94%</span></div></div>
           <div class="px-4 py-2.5 flex items-center justify-between bg-canvas/90 backdrop-blur-md">
             <button onclick="STATE.mobileMenuOpen=!STATE.mobileMenuOpen; render()" class="w-9 h-9 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center text-ink"><i data-lucide="${STATE.mobileMenuOpen?'x':'menu'}" class="w-4 h-4"></i></button>
-            <div class="flex items-center gap-1.5"><div class="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-lav-600 to-peach-400"></div><span class="font-display font-extrabold text-sm text-ink">lume</span></div>
+            <div class="flex items-center gap-1.5"><div class="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-lav-600 to-peach-400"></div><span class="font-display font-extrabold text-sm text-ink">Lume Educação</span></div>
             <div class="flex items-center gap-1.5">
               <button onclick="toggleDarkMode()" class="w-8 h-8 rounded-full bg-white border border-slate-100 flex items-center justify-center"><i data-lucide="${STATE.darkMode?'sun':'moon'}" class="w-3.5 h-3.5 text-lav-600"></i></button>
               <button onclick="goScreen('T00')" class="w-8 h-8 rounded-full bg-lav-600 text-white text-[10px] font-bold flex items-center justify-center">${STATE.nomeAluno.slice(0,2).toUpperCase()}</button>
@@ -1516,7 +1516,7 @@ function render() {
       <div class="max-w-[1380px] w-full mx-auto flex-1 flex gap-5 px-3 py-4">
         <aside class="hidden lg:flex flex-col w-60 glass border border-white/90 rounded-3xl shadow-soft p-3.5 h-[calc(100vh-92px)] sticky top-[76px] shrink-0">
           <div class="flex-1 overflow-y-auto scroll-clean pr-1">${renderNavGroups()}</div>
-          <div class="pt-3 mt-2 border-t border-slate-100 px-2 text-[10px] text-muted flex items-center justify-between"><span>Lume ENEM · MLP</span><span class="font-bold text-lav-600">15 telas</span></div>
+          <div class="pt-3 mt-2 border-t border-slate-100 px-2 text-[10px] text-muted flex items-center justify-between"><span>Lume Educação · MLP</span><span class="font-bold text-lav-600">15 telas</span></div>
         </aside>
         <main id="main-scroll" class="flex-1 pb-24 lg:pb-10 min-w-0">
           <div class="lg:hidden mb-3"><select onchange="goScreen(this.value)" class="w-full glass border border-white rounded-2xl px-4 py-2.5 text-xs font-bold text-ink shadow-soft">${DATA.telas.map(t => `<option value="${t.id}" ${STATE.screen===t.id?'selected':''}>${t.id} · ${t.nome} (${t.release})</option>`).join('')}</select></div>
@@ -1727,7 +1727,7 @@ function aplicarCupom() {
   else showToast('Teste com o cupom LUME2027');
 }
 function abrirNovidades() {
-  openModal('Novidades do Mês · Lume ENEM (LU-235)', `
+  openModal('Novidades do Mês · Lume Educação (LU-235)', `
     <div class="p-3.5 rounded-2xl bg-mint-50 text-xs"><strong>Modo Escuro + 240p:</strong> conforto visual noturno e até 85% de economia de dados.</div>
     <div class="p-3.5 rounded-2xl bg-lav-50 text-xs"><strong>Lume IA 24h:</strong> agora conectável ao Gemini Real e com guia completo do ENEM!</div>
     <div class="p-3.5 rounded-2xl bg-peach-50 text-xs"><strong>Redação mais rápida:</strong> prazo médio de correção caiu para 42 horas.</div>`);
